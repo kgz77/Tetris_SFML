@@ -4,7 +4,7 @@
 #include<time.h>
 
 namespace sg {
-#define HEIGHT 25 //высота игрового поля
+#define HEIGHT 22 //высота игрового поля
 #define WIDTH 12  //ширина игрового поля
 
 	struct Point { int x, y; };
@@ -13,14 +13,14 @@ namespace sg {
 	private:
 		sf::Texture texture;					//для загрузки текстуры
 		sf::Sprite sprite;						//для использования текстуры
-		sf::RectangleShape border;
+		sf::RectangleShape border;				//граница
 		int figures[7][4];						//фигуры 7 кол-во фигур, каждая фигура сос-т из 4-х квадратов
 		int playingField[HEIGHT][WIDTH] = { 0 };//игровое поле
 		int n;									//тип тетрамино
 		int dx;									//для горизантального перемещения 
 		bool rotate;							//для вращения фигуры
 		Point a[4], b[4], temp[4];
-		int nextFigure;
+		int nextFigure;							//след фигура
 		float timer;							//таймер
 		float DO;								//задержка
 		sf::Clock clock;						//таймер
@@ -29,7 +29,6 @@ namespace sg {
 		bool beginGame;							//начало игры
 		bool next;								//чтобы вывести след фигуру
 		int line;								//линия
-		bool levelBool;
 		int level;								//уровень
 		int score;								//счет
 		bool chekBorder();						//проверка выход за границы игрового поля
@@ -49,8 +48,8 @@ namespace sg {
 		void showNextFigure();								//вывести след фигуру
 		void setNextFigureTexture(sf::RenderWindow& window);//вывод текстуры след ффигуры
 		void borderGame(sf::RenderWindow& window);			//граница игры
-		void levelGame(sf::RenderWindow& window);									//уровень игры
-		void scoreGame(sf::RenderWindow& window);									//счет игры
+		void levelGame(sf::RenderWindow& window);			//уровень игры
+		void scoreGame(sf::RenderWindow& window);			//счет игры
 		void endGame(sf::RenderWindow& window);				//конец игры
 	};
 }

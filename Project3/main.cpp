@@ -5,7 +5,7 @@ using namespace sf;
 
 int main() {
 	// Объект, который, собственно, является главным окном приложения
-	RenderWindow mainWindow(VideoMode(380, 330), L"Главное окно!", sf::Style::Titlebar);
+	RenderWindow mainWindow(VideoMode(360, 330), L"Главное окно!", sf::Style::Titlebar);
 
 	startMainWindow(mainWindow);
 	return 0;

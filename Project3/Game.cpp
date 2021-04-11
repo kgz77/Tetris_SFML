@@ -10,10 +10,11 @@ sg::Game::Game() {
 	//вырезаем часть из текстуры размером 18,18
 	sprite.setTextureRect(sf::IntRect(0, 0, 18, 18));
 
+	//грани
 	border.setSize(sf::Vector2f(215.f, 487.f));
 	border.setFillColor(sf::Color(231, 237, 187));
-	/*border.setOutlineThickness(2.f); 
-	border.setOutlineColor(sf::Color::Black);*/
+
+
 
 	//заполнение фигур
 	figures[0][0] = 1;
@@ -63,7 +64,6 @@ sg::Game::Game() {
 	timer = 0;
 	DO = 0.3;
 
-	levelBool = true;
 	level = 0;
 	score = 0;
 
@@ -105,9 +105,15 @@ sg::Game::Game() {
 	
 	text[5].setFont(font);
 	text[5].setFillColor(sf::Color::Red);
-	text[5].setString(L"\t\tИгра окончена!\nНажмите X чтобы выйти\nв главное меню.");
-	text[5].setCharacterSize(20);
-	text[5].setPosition(5, 105);
+	text[5].setString(L"\t\t  Игра окончена!");
+	text[5].setCharacterSize(30);
+	text[5].setPosition(10, 105);
+
+	text[6].setFont(font);
+	text[6].setFillColor(sf::Color::Black);
+	text[6].setString(L"\nНажмите-X чтобы выйти на главное меню.");
+	text[6].setCharacterSize(19);
+	text[6].setPosition(1, 150);
 }
 
 void sg::Game::borderGame(sf::RenderWindow & window) {
@@ -308,6 +314,7 @@ void sg::Game::endGame(sf::RenderWindow& window) {
 			window.clear();
 			window.clear(sf::Color(224, 224, 224, 0));
 			window.draw(text[5]);
+			window.draw(text[6]);
 		}
 	}
 }

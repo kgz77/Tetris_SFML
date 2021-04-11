@@ -10,7 +10,7 @@ void startMainWindow(RenderWindow& window) {
 	Texture back;
 	back.loadFromFile("D:/#KSTU/#KSTU/С++/ООП/Курсовой проект/curs/back.jpg");
 	Sprite sprite(back);
-	sprite.move(-70, -20);
+	sprite.move(-80, -20);
 
 	tb::TextButton button;
 

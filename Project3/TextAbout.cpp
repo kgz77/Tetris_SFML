@@ -9,7 +9,7 @@ ta::TextAbout::TextAbout() {
 	//Об игре
 
 	text[0].setFont(font);
-	text[0].setFillColor(sf::Color::Green);
+	text[0].setFillColor(sf::Color::Red);
 	text[0].setString(L"\t\t\t\tКраткая история\n");
 	text[0].setCharacterSize(23);
 	text[0].setPosition(0, 2);
@@ -21,7 +21,7 @@ ta::TextAbout::TextAbout() {
 	text[1].setPosition(0, 27);
 
 	text[2].setFont(font);
-	text[2].setFillColor(sf::Color::Green);
+	text[2].setFillColor(sf::Color::Red);
 	text[2].setString(L"\t\t\t\tИнтересный факт :)\n");
 	text[2].setCharacterSize(23);
 	text[2].setPosition(0, 95);
@@ -33,7 +33,7 @@ ta::TextAbout::TextAbout() {
 	text[3].setPosition(0, 125);
 
 	text[4].setFont(font);
-	text[4].setFillColor(sf::Color::Green);
+	text[4].setFillColor(sf::Color::Red);
 	text[4].setString(L"\t\t\t\t\tУправление\n");
 	text[4].setCharacterSize(23);
 	text[4].setPosition(0, 210);
