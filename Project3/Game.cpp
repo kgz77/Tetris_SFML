@@ -1,5 +1,6 @@
 #include "Game.h"
 #include<ctime>
+#include<string>
 
 sg::Game::Game() {
 	//загрузка текстуры
@@ -8,6 +9,11 @@ sg::Game::Game() {
 	sprite.setTexture(texture);
 	//вырезаем часть из текстуры размером 18,18
 	sprite.setTextureRect(sf::IntRect(0, 0, 18, 18));
+
+	border.setSize(sf::Vector2f(215.f, 487.f));
+	border.setFillColor(sf::Color(231, 237, 187));
+	/*border.setOutlineThickness(2.f); 
+	border.setOutlineColor(sf::Color::Black);*/
 
 	//заполнение фигур
 	figures[0][0] = 1;
@@ -57,8 +63,61 @@ sg::Game::Game() {
 	timer = 0;
 	DO = 0.3;
 
+	levelBool = true;
 	level = 0;
 	score = 0;
+
+	//Надписи
+	if (!font.loadFromFile("D:/#KSTU/#KSTU/С++/ООП/Курсовой проект/curs/tnr.ttf")) {}
+
+	//След фигура
+	text[0].setFont(font);
+	text[0].setFillColor(sf::Color::Black);
+	text[0].setString(L"Следующая\n     фигура ");
+	text[0].setCharacterSize(20);
+	text[0].setPosition(230, 50);
+
+	//Счет
+	text[1].setFont(font);
+	text[1].setFillColor(sf::Color::Black);
+	text[1].setString(L"Счет ");
+	text[1].setCharacterSize(20);
+	text[1].setPosition(267, 205);
+
+	//Уровень
+	text[2].setFont(font);
+	text[2].setFillColor(sf::Color::Black);
+	text[2].setString(L"Уровень ");
+	text[2].setCharacterSize(20);
+	text[2].setPosition(255, 290);
+
+	text[3].setFont(font);
+	text[3].setFillColor(sf::Color::Black);
+	text[3].setString(std::to_wstring(level));
+	text[3].setCharacterSize(20);
+	text[3].setPosition(285, 240);
+
+	text[4].setFont(font);
+	text[4].setFillColor(sf::Color::Black);
+	text[4].setString(std::to_wstring(score));
+	text[4].setCharacterSize(20);
+	text[4].setPosition(285, 315);	
+	
+	text[5].setFont(font);
+	text[5].setFillColor(sf::Color::Red);
+	text[5].setString(L"\t\tИгра окончена!\nНажмите X чтобы выйти\nв главное меню.");
+	text[5].setCharacterSize(20);
+	text[5].setPosition(5, 105);
+}
+
+void sg::Game::borderGame(sf::RenderWindow & window) {
+	window.draw(border);
+}
+
+void sg::Game::draw(sf::RenderWindow& window) {
+	for (int i = 0; i < 5; i++) {
+		window.draw(text[i]);
+	}
 }
 
 //получение времени прошедшее с начала отсчета
@@ -137,14 +196,19 @@ void sg::Game::lineKilling() {
 	line = HEIGHT - 1;
 	for (int i = HEIGHT - 1; i > 0; i--) {
 		int count = 0;
-		for (int j = 0; j < WIDTH; j++) {
-			if (playingField[i][j])
+		for (int j = 0; j < WIDTH; j++) {	
+			if (playingField[i][j]) 
 				count++;
 			playingField[line][j] = playingField[i][j];
-			level++;
 		}
-		if (count < WIDTH)
-			line--;
+		if (count < WIDTH) {
+			line--;		
+		}
+		else {
+			score += 100;
+			if (score == 1000 || score == 2000 || score == 3000 || score == 4000 || score == 5000 || score == 6000 || score == 7000 || score == 8000 || score == 9000)
+				level++;
+		}
 	}
 }
 
@@ -220,9 +284,21 @@ void sg::Game::setNextFigureTexture(sf::RenderWindow& window) {
 	for (int i = 0; i < 4; i++) {
 		sprite.setTextureRect(sf::IntRect(colorNumNext * 18, 0, 18, 18));
 		sprite.setPosition(temp[i].x * 18, temp[i].y * 18);
-		sprite.move(250, 80);
+		sprite.move(270, 110);
 		window.draw(sprite);
 	}
+}
+
+void sg::Game::levelGame(sf::RenderWindow& window) {
+	text[3].setString(std::to_wstring(score));
+	window.draw(text[3]);
+}
+
+void sg::Game::scoreGame(sf::RenderWindow& window) {
+	text[4].setString(std::to_wstring(level));
+	window.draw(text[4]);
+	if (level >= 3 || level >=5 || level >= 7 || level >= 8 || level >= 9)
+		DO -= 0.05;
 }
 
 //проверка на конец игры
@@ -231,6 +307,7 @@ void sg::Game::endGame(sf::RenderWindow& window) {
 		if (playingField[1][i]) {
 			window.clear();
 			window.clear(sf::Color(224, 224, 224, 0));
+			window.draw(text[5]);
 		}
 	}
 }

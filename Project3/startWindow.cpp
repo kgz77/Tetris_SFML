@@ -69,11 +69,12 @@ void startGameWindow(sf::RenderWindow& window) {
 		sf::Event event;
 		while (window.pollEvent(event)) {
 			// Пользователь нажал на «крестик» и хочет закрыть окно?
-			if (event.type == sf::Event::Closed)
+			if (event.type == sf::Event::Closed) {
 				// тогда закрываем его
 				window.close();
+			}
 			game.isKeyPressed(event);
-		}
+		} 
 		game.showNextFigure();
 		game.speedTheFall();
 		game.horizontalMove();
@@ -82,9 +83,14 @@ void startGameWindow(sf::RenderWindow& window) {
 		game.lineKilling();
 		game.setPieces(window);
 		window.clear(sf::Color(224, 224, 224, 0));
+		game.borderGame(window);
+		game.draw(window);
 		game.setNextFigureTexture(window);
 		game.setTexture(window);
+		game.levelGame(window);
+		game.scoreGame(window);
 		game.endGame(window);
+
 		// Отрисовка окна	
 		window.display();
 	}

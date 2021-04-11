@@ -37,10 +37,12 @@ void tb::TextButton::draw(sf::RenderWindow& window) {
 void tb::TextButton::click(sf::RenderWindow& window) {
 		if (sf::IntRect(27, 30, 100, 30).contains(sf::Mouse::getPosition(window))) {
 			text[0].setFillColor(sf::Color::Green);
+			
 			mainMenu = 1;
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				if (mainMenu == 1) {
-					sf::RenderWindow windGame(sf::VideoMode(320, 480), L"Тетрис");
+					sf::RenderWindow windGame(sf::VideoMode(360, 450), L"Тетрис");
+					window.close();
 					startGameWindow(windGame);
 				}
 			}

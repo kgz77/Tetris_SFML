@@ -8,6 +8,5 @@ int main() {
 	RenderWindow mainWindow(VideoMode(380, 330), L"Главное окно!", sf::Style::Titlebar);
 
 	startMainWindow(mainWindow);
-
 	return 0;
 }

@@ -3,7 +3,7 @@
 
 namespace tb {
 	class TextButton {
-	protected:
+	protected: 
 		sf::Font font;
 		sf::Text text[7];
 		int mainMenu;
