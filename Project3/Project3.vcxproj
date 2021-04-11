@@ -151,12 +151,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="startWindow.cpp" />
     <ClCompile Include="TextAbout.cpp" />
     <ClCompile Include="TextButton.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game.h" />
     <ClInclude Include="startWindow.h" />
     <ClInclude Include="TextAbout.h" />
     <ClInclude Include="TextButton.h" />

@@ -1,6 +1,7 @@
 #include"startWindow.h"
 #include"TextButton.h"
 #include"TextAbout.h"
+#include"Game.h"
 
 using namespace sf;
 
@@ -52,6 +53,38 @@ void startAboutTheGameWindow(sf::RenderWindow& window) {
 		window.clear(Color(205, 205, 205, 0));
 		//расположение текста
 		textAbout.draw(window);
+		// Отрисовка окна	
+		window.display();
+	}
+}
+
+//игра
+void startGameWindow(sf::RenderWindow& window) {
+	sg::Game game;
+
+	// Главный цикл приложения. Выполняется, пока открыто окно
+	while (window.isOpen()) {
+		game.getTime();
+		// Обрабатываем очередь событий в цикле
+		sf::Event event;
+		while (window.pollEvent(event)) {
+			// Пользователь нажал на «крестик» и хочет закрыть окно?
+			if (event.type == sf::Event::Closed)
+				// тогда закрываем его
+				window.close();
+			game.isKeyPressed(event);
+		}
+		game.showNextFigure();
+		game.speedTheFall();
+		game.horizontalMove();
+		game.rotation();
+		game.downMove();
+		game.lineKilling();
+		game.setPieces(window);
+		window.clear(sf::Color(224, 224, 224, 0));
+		game.setNextFigureTexture(window);
+		game.setTexture(window);
+		game.endGame(window);
 		// Отрисовка окна	
 		window.display();
 	}
