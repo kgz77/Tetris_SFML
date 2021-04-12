@@ -111,7 +111,7 @@ sg::Game::Game() {
 	text[6].setFillColor(sf::Color::Black);
 	text[6].setString(L"\nНажмите-X чтобы выйти на главное меню.");
 	text[6].setCharacterSize(19);
-	text[6].setPosition(1, 150);
+	text[6].setPosition(1, 195);
 }
 
 //граница игрвого поля
@@ -315,8 +315,16 @@ void sg::Game::endGame(sf::RenderWindow& window) {
 		if (playingField[1][i]) {
 			window.clear();
 			window.clear(sf::Color(224, 224, 224, 0));
-			window.draw(text[5]);
-			window.draw(text[6]);
+			text[1].setString(L"Ваш счет : ");
+			text[1].setPosition(110, 148);
+			text[3].setPosition(207, 148);
+			text[2].setString(L"Уровень : ");
+			text[2].setPosition(117, 175);
+			text[4].setPosition(208, 175);
+			for (int i = 1; i < 5; i++)
+				text[i].setFillColor(sf::Color::Blue);
+			for (int i = 1; i < 7; i++)
+				window.draw(text[i]);
 		}
 	}
 }
