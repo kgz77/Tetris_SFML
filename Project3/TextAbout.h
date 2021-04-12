@@ -6,6 +6,6 @@ namespace ta {
 	class TextAbout :public TextButton {
 	public:
 		TextAbout();
-		void draw(sf::RenderWindow&);
+		void draw(sf::RenderWindow&);//перепределение вирт метода
 	};
 }

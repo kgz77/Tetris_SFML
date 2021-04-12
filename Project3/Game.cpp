@@ -10,11 +10,9 @@ sg::Game::Game() {
 	//вырезаем часть из текстуры размером 18,18
 	sprite.setTextureRect(sf::IntRect(0, 0, 18, 18));
 
-	//грани
+	//граница
 	border.setSize(sf::Vector2f(215.f, 487.f));
 	border.setFillColor(sf::Color(231, 237, 187));
-
-
 
 	//заполнение фигур
 	figures[0][0] = 1;
@@ -64,7 +62,7 @@ sg::Game::Game() {
 	timer = 0;
 	DO = 0.3;
 
-	level = 0;
+	level = 1;
 	score = 0;
 
 	//Надписи
@@ -95,13 +93,13 @@ sg::Game::Game() {
 	text[3].setFillColor(sf::Color::Black);
 	text[3].setString(std::to_wstring(level));
 	text[3].setCharacterSize(20);
-	text[3].setPosition(285, 240);
+	text[3].setPosition(280, 240);
 
 	text[4].setFont(font);
 	text[4].setFillColor(sf::Color::Black);
 	text[4].setString(std::to_wstring(score));
 	text[4].setCharacterSize(20);
-	text[4].setPosition(285, 315);	
+	text[4].setPosition(290, 315);	
 	
 	text[5].setFont(font);
 	text[5].setFillColor(sf::Color::Red);
@@ -116,10 +114,12 @@ sg::Game::Game() {
 	text[6].setPosition(1, 150);
 }
 
+//граница игрвого поля
 void sg::Game::borderGame(sf::RenderWindow & window) {
 	window.draw(border);
 }
 
+//переопределение виртуального метода
 void sg::Game::draw(sf::RenderWindow& window) {
 	for (int i = 0; i < 5; i++) {
 		window.draw(text[i]);
@@ -295,11 +295,13 @@ void sg::Game::setNextFigureTexture(sf::RenderWindow& window) {
 	}
 }
 
+//счет 
 void sg::Game::levelGame(sf::RenderWindow& window) {
 	text[3].setString(std::to_wstring(score));
 	window.draw(text[3]);
 }
 
+//уровень игры
 void sg::Game::scoreGame(sf::RenderWindow& window) {
 	text[4].setString(std::to_wstring(level));
 	window.draw(text[4]);
