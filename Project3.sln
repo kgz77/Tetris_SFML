@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project3", "Project3\Project3.vcxproj", "{4870368B-1887-4B70-96DA-7B3005702039}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Тетрис", "Тетрис\Тетрис.vdproj", "{DDD65D57-944C-40B2-9996-91CEC6FDB215}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,10 @@ Global
 		{4870368B-1887-4B70-96DA-7B3005702039}.Release|x64.Build.0 = Release|x64
 		{4870368B-1887-4B70-96DA-7B3005702039}.Release|x86.ActiveCfg = Release|Win32
 		{4870368B-1887-4B70-96DA-7B3005702039}.Release|x86.Build.0 = Release|Win32
+		{DDD65D57-944C-40B2-9996-91CEC6FDB215}.Debug|x64.ActiveCfg = Debug
+		{DDD65D57-944C-40B2-9996-91CEC6FDB215}.Debug|x86.ActiveCfg = Debug
+		{DDD65D57-944C-40B2-9996-91CEC6FDB215}.Release|x64.ActiveCfg = Release
+		{DDD65D57-944C-40B2-9996-91CEC6FDB215}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
