@@ -4,7 +4,7 @@
 
 sg::Game::Game() {
 	//загрузка текстуры
-	if (texture.loadFromFile("D:/#KSTU/#KSTU/С++/ООП/Лб/work/work/work/tiles.png")) {}
+	if (texture.loadFromFile("C:/Users/User/source/repos/Project3/tiles.png")) {}
 	//создание спрайта
 	sprite.setTexture(texture);
 	//вырезаем часть из текстуры размером 18,18
@@ -66,7 +66,7 @@ sg::Game::Game() {
 	score = 0;
 
 	//Надписи
-	if (!font.loadFromFile("D:/#KSTU/#KSTU/С++/ООП/Курсовой проект/curs/tnr.ttf")) {}
+	if (!font.loadFromFile("C:/Users/User/source/repos/Project3/tnr.ttf")) {}
 
 	//След фигура
 	text[0].setFont(font);

@@ -4,7 +4,7 @@
 using namespace tb;
 
 ta::TextAbout::TextAbout() {
-	if (!font.loadFromFile("D:/#KSTU/#KSTU/С++/ООП/Курсовой проект/curs/tnr.ttf")) {}
+	if (!font.loadFromFile("C:/Users/User/source/repos/Project3/tnr.ttf")) {}
 
 	//Об игре
 

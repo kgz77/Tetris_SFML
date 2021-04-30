@@ -8,7 +8,7 @@ using namespace sf;
 //Главное окно
 void startMainWindow(RenderWindow& window) {
 	Texture back;
-	back.loadFromFile("D:/#KSTU/#KSTU/С++/ООП/Курсовой проект/curs/back.jpg");
+	back.loadFromFile("C:/Users/User/source/repos/Project3/back.jpg");
 	Sprite sprite(back);
 	sprite.move(-80, -20);
 
